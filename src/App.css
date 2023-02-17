@@ -1,38 +1,121 @@
-.App {
+html {
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  /* margin: 1rem; */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  height: 150px;
+  width: 90%;
+  background-color: #c4d4e4;
+  color: darkslategray;
+  border: 1px rgb(1, 1, 48) solid;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem;
+  /* justify-content: center; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-content {
+  font-size: 2.5rem;
+  /* margin: 15px auto; */
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav_btns {
+  text-decoration: none;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
 }
 
-.App-link {
-  color: #61dafb;
+.list_item {
+  padding: 0.5rem;
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  margin: 0.25rem;
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 1.5rem;
+  border-radius: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list_item_active {
+  padding: 0.5rem;
+  margin: 0.25rem;
+  text-decoration: none;
+  list-style-type: none;
+  background-color: rgb(142, 142, 251);
+  font-size: 1.5rem;
+  border-radius: 8px;
+}
+
+.list_item:hover {
+  background-color: rgb(254, 155, 6);
+}
+
+.input_box {
+  min-height: 2rem;
+  margin: 0.2rem 1rem;
+  font-size: 1.1rem;
+}
+
+.btn_submit {
+  background-color: #c4d4e4;
+  border: solid 1px black;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.75rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  margin: 1rem 0.5rem;
+}
+
+.btn_submit:hover {
+  background-color: rgb(254, 155, 6);
+}
+
+.content {
+  position: relative;
+  top: 200px;
+  padding: 0 5%;
+}
+
+.content_header {
+  font-size: 1.2rem;
+}
+
+.content_sub {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.head_bold_big {
+  font-weight: 700;
+  font-size: 1.5rem;
+  /* margin-left: 0.5rem; */
+}
+
+.forecast_grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(6, 1fr);
 }
