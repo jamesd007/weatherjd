@@ -5,7 +5,6 @@ import './App.css'
 with user lat and long and gets city data from API*/}
 
 const GetCurrentLoc = () => {
-
     const [lat, setLat] = useState(null);
     const [long, setLong] = useState(null);
     const [status, setStatus] = useState(null);
@@ -13,6 +12,7 @@ const GetCurrentLoc = () => {
     const [temp, setTemp] = useState(null)
     const [humidity, setHumidity] = useState(null)
     const [description, setDescription] = useState(null)
+    const [tempUnit, setTempUnit] = useState("°C")
     const API_KEY = process.env.REACT_APP_API_KEY
 
     const successCallback = (position) => {
@@ -46,7 +46,7 @@ const GetCurrentLoc = () => {
         const regExp = /^[-+0-9.]+$/;
         async function fetchData() {
             try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${long}&cnt=1&appid=${API_KEY}`)
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${long}&cnt=1&units=metric&appid=${API_KEY}`)
                 response
                     .json()
                     .then((response) => {
@@ -63,6 +63,18 @@ const GetCurrentLoc = () => {
             fetchData();
     }, [lat, long]);
 
+    const handleClick = () => {
+        if (tempUnit === "°F") {
+            setTempUnit("°C")
+        }
+        else {
+
+            setTempUnit("°F")
+
+        }
+
+    }
+
     return (
         <div >
             <div className='content_header'>
@@ -72,8 +84,21 @@ const GetCurrentLoc = () => {
             <div className='content_sub'>
                 <p>coordinates: {lat}  ;  {long} </p>
                 <div>Temperature:
-                    <span className='head_bold_big'>{temp}  </span>
-                    <span> degrees F</span>
+                    <span
+                        className='head_bold_big_dbl'
+                    // style={{ marginLeft: "0.5rem" }}
+                    >{
+                            tempUnit === "°F"
+                                ? Math.round((temp * 9 / 5 + 32) * 100) / 100
+                                : temp
+                        }
+                    </span>
+                    <button
+                        className='deg_btn'
+                        // style={{ marginLeft: "0.5rem" }}
+                        onClick={handleClick}>
+                        {tempUnit}
+                    </button>
                 </div>
                 <p>Humidity: {humidity}
                     <span> %</span>

@@ -10,11 +10,6 @@ body {
   margin: 0;
 }
 
-.container {
-  /* margin: 1rem; */
-  text-align: center;
-}
-
 .header {
   position: absolute;
   left: 50%;
@@ -30,12 +25,10 @@ body {
   justify-content: space-between;
   gap: 2rem;
   padding: 1rem;
-  /* justify-content: center; */
 }
 
 .header-content {
   font-size: 2.5rem;
-  /* margin: 15px auto; */
   text-decoration: none;
 }
 
@@ -77,6 +70,7 @@ body {
   min-height: 2rem;
   margin: 0.2rem 1rem;
   font-size: 1.1rem;
+  max-width: 60%;
 }
 
 .btn_submit {
@@ -91,6 +85,33 @@ body {
 
 .btn_submit:hover {
   background-color: rgb(254, 155, 6);
+}
+
+.deg_btn {
+  font-size: 1rem;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.2rem;
+}
+
+.deg_btn:hover {
+  background-color: rgb(254, 155, 6);
+}
+
+.btn_submit-disabled {
+  background-color: #d9d9d9;
+  color: #a6a6a6;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: not-allowed;
+}
+
+.rgt_content {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  text-align: right;
 }
 
 .content {
@@ -111,11 +132,24 @@ body {
 .head_bold_big {
   font-weight: 700;
   font-size: 1.5rem;
-  /* margin-left: 0.5rem; */
+  margin-left: 0.5rem;
+}
+
+.head_bold_big_dbl {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-left: 0.5rem;
 }
 
 .forecast_grid {
+  max-width: 100%;
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 767px) {
+  .forecast_grid {
+    grid-gap: 0.5rem;
+  }
 }

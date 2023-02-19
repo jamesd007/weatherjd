@@ -23,7 +23,8 @@ const Navbar = () => {
         <div >
             <nav className='header' >
                 <Link to="/"
-                    className='header-content'>
+                    className='header-content'
+                >
                     JD's Weather
                 </Link>
                 <div className='nav_btns'>
@@ -34,9 +35,6 @@ const Navbar = () => {
                         7-day Forecast
                     </CustomLink>
                     {/* TODO:need to show button as active if got there via navigation */}
-                    {/* <CustomLink to="/forecast/:searchCity"
-                        style={{ display: "none" }}>
-                    </CustomLink> */}
                 </div>
             </nav>
         </div>
